@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<title>Skyrim Dragon Name Generator / Translator</title>
+	</head>
+
+<body>
+
+<div style="float: left; clear: both;">
+
+    <form name="dovahkiin" id="dovahkiin" method="post">
+
+        <ul style="display: inline; float: left; list-style-type: none;">
+
+            <li>
+            	<select name="firstWord" id="firstWord">
+
+        			<?php foreach( $this -> dragonWords as $word ) : ?>
+
+    				<option value="<?php echo $word; ?>"
+                        <?php if( isset( $this -> result ) && isset( $this -> result['dragonborn']['words'][ 0 ] ) && $this -> result['dragonborn']['words'][ 0 ] == $word ) : ?>selected="selected"<?php endif; ?>>
+                        <?php echo $word; ?>
+
+    				</option>
+
+        			<?php endforeach; ?>
+
+            	</select>
+            </li>
+
+            <li><button rel="randomize">Randomize</button></li>
+
+        </ul>
+
+        <ul style="display: inline; float: left; list-style-type: none;">
+
+            <li>
+            	<select name="secondWord" id="secondWord">
+
+        			<?php foreach( $this -> dragonWords as $word ) : ?>
+
+    				<option value="<?php echo $word; ?>"
+                        <?php if( isset( $this -> result ) && isset( $this -> result['dragonborn']['words'][ 1 ] ) && $this -> result['dragonborn']['words'][ 1 ] == $word ) : ?>selected="selected"<?php endif; ?>>
+                        <?php echo $word; ?>
+
+    				</option>
+
+        			<?php endforeach; ?>
+
+            	</select>
+            </li>
+
+            <li><button rel="randomize">Randomize</button></li>
+
+        </ul>
+
+        <ul style="display: inline; float: left; list-style-type: none;">
+
+            <li>
+            	<select name="thirdWord" id="thirdWord">
+
+        			<?php foreach( $this -> dragonWords as $word ) : ?>
+
+    				<option value="<?php echo $word; ?>"
+                        <?php if( isset( $this -> result ) && isset( $this -> result['dragonborn']['words'][ 2 ] ) && $this -> result['dragonborn']['words'][ 2 ] == $word ) : ?>selected="selected"<?php endif; ?>>
+    					<?php echo $word; ?>
+
+    				</option>
+
+        			<?php endforeach; ?>
+
+            	</select>
+            </li>
+
+            <li><button rel="randomize">Randomize</button></li>
+
+        </ul>
+
+        <input type="button" rel="randomize" id="randomizeDragonWords"
+            value="Randomize All" style="margin: 30px 0 0 30px;" />
+
+        <button type="submit" name="translate" value="dragonborn"
+            style="margin: 30px 0 0 30px;">Translate</button>
+
+    </form>
+
+    <?php if( isset( $this -> result ) &&
+              isset( $this -> result['dragonborn'] ) ) : ?>
+
+    <p style="clear: both;">
+
+        Your Dragon name
+
+        <strong>
+            <?php echo implode( ' &bull; ', $this -> result['dragonborn']['words'] ); ?>
+
+        </strong>
+
+        means, literally,
+
+        <strong>
+            <?php echo implode( ' &bull; ', $this -> result['dragonborn']['meanings'] ); ?>
+
+        </strong>
+
+    <?php else: ?>
+
+    <br style="clear: both;" />
+
+    <?php endif; ?>
+
+    <form name="dragonborn" id="dragonborn" method="post">
+
+        <ul style="display: inline; float: left; list-style-type: none;">
+
+            <li>
+                <select name="firstWord" id="firstWord">
+
+                    <?php foreach( $this -> humanWords as $word ) : ?>
+
+                    <option value="<?php echo $word; ?>"
+                        <?php if( isset( $this -> result ) && isset( $this -> result['dovahkiin']['meanings'][ 0 ] ) && $this -> result['dovahkiin']['meanings'][ 0 ] == $word ) : ?>selected="selected"<?php endif; ?>>
+                        <?php echo $word; ?>
+
+                    </option>
+
+                    <?php endforeach; ?>
+
+                </select>
+            </li>
+
+            <li><button rel="randomize">Randomize</button></li>
+
+        </ul>
+
+        <ul style="display: inline; float: left; list-style-type: none;">
+
+            <li>
+                <select name="secondWord" id="secondWord">
+
+                    <?php foreach( $this -> humanWords as $word ) : ?>
+
+                    <option value="<?php echo $word; ?>"
+                        <?php if( isset( $this -> result ) && isset( $this -> result['dovahkiin']['meanings'][ 1 ] ) && $this -> result['dovahkiin']['meanings'][ 1 ] == $word ) : ?>selected="selected"<?php endif; ?>>
+                        <?php echo $word; ?>
+
+                    </option>
+
+                    <?php endforeach; ?>
+
+                </select>
+            </li>
+
+            <li><button rel="randomize">Randomize</button></li>
+
+        </ul>
+
+        <ul style="display: inline; float: left; list-style-type: none;">
+
+            <li>
+                <select name="thirdWord" id="thirdWord">
+
+                    <?php foreach( $this -> humanWords as $word ) : ?>
+
+                    <option value="<?php echo $word; ?>"
+                        <?php if( isset( $this -> result ) && isset( $this -> result['dovahkiin']['meanings'][ 2 ] ) && $this -> result['dovahkiin']['meanings'][ 2 ] == $word ) : ?>selected="selected"<?php endif; ?>>
+                        <?php echo $word; ?>
+
+                    </option>
+
+                    <?php endforeach; ?>
+
+                </select>
+            </li>
+
+            <li>
+                <button rel="randomize">Randomize</button>
+            </li>
+
+        </ul>
+
+        <input type="button" rel="randomize" id="randomizeHumanWords"
+            value="Randomize All" style="margin: 30px 0 0 30px;" />
+
+        <button type="submit" name="translate" value="dovahkiin"
+            style="margin: 30px 0 0 30px;">Translate</button>
+
+      </form>
+
+    <?php if( isset( $this -> result ) &&
+              isset( $this -> result['dovahkiin'] ) ) : ?>
+
+    <p style="clear: both;">
+
+        The name
+
+        <strong>
+            <?php echo implode( ' &bull; ', $this -> result['dovahkiin']['meanings'] ); ?>
+        </strong>
+
+        is said, in Dragon Language,
+
+        <strong>
+            <?php echo implode( ' &bull; ', $this -> result['dovahkiin']['words'] ); ?>
+        </strong>
+
+    <?php endif; ?>
+
+ </div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+    $( document ).ready( function() {
+
+        $( '#randomizeDragonWords' ).click( function() {
+
+            $( '#dovahkiin button[rel="randomize"]' ).each( function() {
+
+                randomizeWords( $( this ) );
+            });
+
+            return false;
+        });
+
+        $( '#dovahkiin button[rel="randomize"]' ).click( function( e ) {
+
+            e.preventDefault();
+
+            randomizeWords( $( this ) );
+        });
+
+        $( '#randomizeHumanWords' ).click( function() {
+
+            $( '#dragonborn button[rel="randomize"]' ).each( function() {
+
+                randomizeWords( $( this ) );
+            });
+
+            return false;
+        });
+
+        $( '#dragonborn button[rel="randomize"]' ).click( function( e ) {
+
+            e.preventDefault();
+
+            randomizeWords( $( this ) );
+        });
+    });
+
+    function randomizeWords( button ) {
+
+        var select  = button.parent().parent().find( 'select' );
+        var options = select.find( 'option' );
+
+        var random = Math.floor( Math.random() * options.length );
+
+        options.eq( random ).prop( 'selected', true );
+    }
+
+    </script>
+
+</body>
+</html>
