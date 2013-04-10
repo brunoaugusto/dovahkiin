@@ -56,14 +56,14 @@ class GeneratorController extends AbstractController {
     /**
      * Generator View
      *
-     * !Route    GET,    /finished/generator
+     * !Route    GET,    /generator
      */
     final public function main() {}
 
     /**
      * Translator
      *
-     * !Route    POST,    /finished/generator
+     * !Route    POST,    /generator
      */
     final public function translateAction() {
 

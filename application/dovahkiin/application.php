@@ -18,6 +18,8 @@ use Next\Application\AbstractApplication,    # Abstract Application Class
  *
  * @package     application
  * @subpackage  dovahkiin
+ *
+ * !Path    /finished
  */
 class application extends AbstractApplication {
 
@@ -26,7 +28,10 @@ class application extends AbstractApplication {
      */
     protected function setupControllers()  {
 
-        $this -> controllers -> add( new Controllers\GeneratorController );
+        if( DEVELOPMENT_MODE == 2 ) {
+
+            $this -> controllers -> add( new Controllers\GeneratorController );
+        }
     }
 
     /**

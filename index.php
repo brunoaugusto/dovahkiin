@@ -59,10 +59,7 @@ if( DEVELOPMENT_MODE == 2 ) {
 
             $applications,
 
-            new \Next\DB\Driver\PDO\Adapter\SQLite(
-
-                array( 'dbPath' => 'Data/Routes.sqlite' )
-            )
+            'data/routes.sqlite'
         )
     );
 
