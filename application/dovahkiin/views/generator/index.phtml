@@ -11,12 +11,12 @@
 
 <div style="float: left; clear: both;">
 
-    <form name="dovahkiin" id="dovahkiin" method="post">
+    <form name="dovahkiin" id="dovahkiin" action="" method="post">
 
         <ul style="display: inline; float: left; list-style-type: none;">
 
             <li>
-            	<select name="firstWord" id="firstWord">
+            	<select name="firstWord" class="firstWord">
 
         			<?php foreach( $this -> dragonWords as $word ) : ?>
 
@@ -31,14 +31,16 @@
             	</select>
             </li>
 
-            <li><button rel="randomize">Randomize</button></li>
+            <li>
+                <p><button class="randomize">Randomize</button></p>
+            </li>
 
         </ul>
 
         <ul style="display: inline; float: left; list-style-type: none;">
 
             <li>
-            	<select name="secondWord" id="secondWord">
+            	<select name="secondWord" class="secondWord">
 
         			<?php foreach( $this -> dragonWords as $word ) : ?>
 
@@ -53,14 +55,16 @@
             	</select>
             </li>
 
-            <li><button rel="randomize">Randomize</button></li>
+            <li>
+                <p><button class="randomize">Randomize</button></p>
+            </li>
 
         </ul>
 
         <ul style="display: inline; float: left; list-style-type: none;">
 
             <li>
-            	<select name="thirdWord" id="thirdWord">
+            	<select name="thirdWord" class="thirdWord">
 
         			<?php foreach( $this -> dragonWords as $word ) : ?>
 
@@ -75,15 +79,19 @@
             	</select>
             </li>
 
-            <li><button rel="randomize">Randomize</button></li>
+            <li>
+                <p><button class="randomize">Randomize</button></p>
+            </li>
 
         </ul>
 
-        <input type="button" rel="randomize" id="randomizeDragonWords"
-            value="Randomize All" style="margin: 30px 0 0 30px;" />
+        <div style="display: inline;">
+            <input type="button" class="randomize" id="randomizeDragonWords"
+                value="Randomize All" style="margin: 30px 0 0 30px;" />
 
-        <button type="submit" name="translate" value="dragonborn"
-            style="margin: 30px 0 0 30px;">Translate</button>
+            <button type="submit" name="translate" value="dragonborn"
+                style="margin: 30px 0 0 30px;">Translate</button>
+        </div>
 
     </form>
 
@@ -112,12 +120,12 @@
 
     <?php endif; ?>
 
-    <form name="dragonborn" id="dragonborn" method="post">
+    <form name="dragonborn" id="dragonborn" action="" method="post">
 
         <ul style="display: inline; float: left; list-style-type: none;">
 
             <li>
-                <select name="firstWord" id="firstWord">
+                <select name="firstWord" class="firstWord">
 
                     <?php foreach( $this -> humanWords as $word ) : ?>
 
@@ -132,14 +140,16 @@
                 </select>
             </li>
 
-            <li><button rel="randomize">Randomize</button></li>
+            <li>
+                <p><button class="randomize">Randomize</button></p>
+            </li>
 
         </ul>
 
         <ul style="display: inline; float: left; list-style-type: none;">
 
             <li>
-                <select name="secondWord" id="secondWord">
+                <select name="secondWord" class="secondWord">
 
                     <?php foreach( $this -> humanWords as $word ) : ?>
 
@@ -154,14 +164,16 @@
                 </select>
             </li>
 
-            <li><button rel="randomize">Randomize</button></li>
+            <li>
+                <p><button class="randomize">Randomize</button></p>
+            </li>
 
         </ul>
 
         <ul style="display: inline; float: left; list-style-type: none;">
 
             <li>
-                <select name="thirdWord" id="thirdWord">
+                <select name="thirdWord" class="thirdWord">
 
                     <?php foreach( $this -> humanWords as $word ) : ?>
 
@@ -177,16 +189,18 @@
             </li>
 
             <li>
-                <button rel="randomize">Randomize</button>
+                <p><button class="randomize">Randomize</button></p>
             </li>
 
         </ul>
 
-        <input type="button" rel="randomize" id="randomizeHumanWords"
-            value="Randomize All" style="margin: 30px 0 0 30px;" />
+        <div style="display: inline;">
+            <input type="button" class="randomize" id="randomizeHumanWords"
+                value="Randomize All" style="margin: 0px 0 0 30px;" />
 
-        <button type="submit" name="translate" value="dovahkiin"
-            style="margin: 30px 0 0 30px;">Translate</button>
+            <button type="submit" name="translate" value="dovahkiin"
+                style="margin: 30px 0 0 30px;">Translate</button>
+        </div>
 
       </form>
 
@@ -211,7 +225,8 @@
 
  </div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script type="text/javascript"
+    src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 
 <script type="text/javascript">
 
@@ -219,7 +234,7 @@
 
         $( '#randomizeDragonWords' ).click( function() {
 
-            $( '#dovahkiin button[rel="randomize"]' ).each( function() {
+            $( '#dovahkiin button.randomize' ).each( function() {
 
                 randomizeWords( $( this ) );
             });
@@ -227,7 +242,7 @@
             return false;
         });
 
-        $( '#dovahkiin button[rel="randomize"]' ).click( function( e ) {
+        $( '#dovahkiin button.randomize' ).click( function( e ) {
 
             e.preventDefault();
 
@@ -236,7 +251,7 @@
 
         $( '#randomizeHumanWords' ).click( function() {
 
-            $( '#dragonborn button[rel="randomize"]' ).each( function() {
+            $( '#dragonborn button.randomize' ).each( function() {
 
                 randomizeWords( $( this ) );
             });
@@ -244,7 +259,7 @@
             return false;
         });
 
-        $( '#dragonborn button[rel="randomize"]' ).click( function( e ) {
+        $( '#dragonborn button.randomize' ).click( function( e ) {
 
             e.preventDefault();
 
@@ -254,7 +269,7 @@
 
     function randomizeWords( button ) {
 
-        var select  = button.parent().parent().find( 'select' );
+        var select  = button.parent().parent().parent().find( 'select' );
         var options = select.find( 'option' );
 
         var random = Math.floor( Math.random() * options.length );
