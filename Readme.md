@@ -7,7 +7,7 @@ Before use it a couple things must be done:
 <ol>
 
 	<li>
-		In <strong>index.php</strong> file adjust the path to Next Framework at line 29
+		In <strong>index.php</strong> file adjust the path to Next Framework at line 22
 	</li>
 
 	<li>
@@ -26,6 +26,26 @@ Before use it a couple things must be done:
 
 		<p>
 			If you decide to leave the application in the root of your web folder, simply delete that line :)
+		</p>
+	</li>
+
+	<li>
+		<p>
+			Back in <strong>index.php</strong> change the value of constant <strong>DEVELOPMENT_MODE</strong> to 2
+			and open the Application in your browser pointing to the only route found (/generator), e.g: localhost/finished/dovahkiin
+		</p>
+
+		<p>
+			If you changed the <strong>!Path</strong> entry as described in the previous item, reflect your choice here.
+
+			<br />
+
+			If you removed it, don't use a subdirectory. It's pretty straightforward :p
+		</p>
+
+		<p>
+			Once you see the message confirming that routes were generated you can revert the value of this constant
+			back to <strong>1</strong>
 		</p>
 	</li>
 

@@ -1,20 +1,13 @@
 <?php
 
 define( 'DEVELOPMENT_MODE', 1 );
-
-define( 'DS', DIRECTORY_SEPARATOR );
-
 define( 'TURBO_MODE', TRUE );
 
-if( function_exists( 'init_set' ) ) {
-
-    ini_set( 'display_errors', TRUE );
-}
+if( function_exists( 'init_set' ) ) ini_set( 'display_errors', TRUE );
 
 if( function_exists( 'error_reporting' ) ) {
 
-    if( version_compare( PHP_VERSION, '5.3' ) >= 0 &&
-        version_compare( PHP_VERSION, '5.4' ) <  0 ) {
+    if( version_compare( PHP_VERSION, '5.3' ) >= 0 && version_compare( PHP_VERSION, '5.4' ) <  0 ) {
 
         error_reporting( E_ALL | E_STRICT );
 
@@ -29,43 +22,39 @@ set_include_path(
     '.' . PATH_SEPARATOR . realpath( '../../common/next' )
 );
 
-require_once 'Next\Loader\AutoLoader.php';
-require_once 'Next\Loader\AutoLoader\Stream.php';
+require_once 'Next/Loader/AutoLoader.php';
+require_once 'Next/Loader/AutoLoader/Stream.php';
 
-$autoloader = new \Next\Loader\AutoLoader;
-$autoloader -> registerAutoloader( new \Next\Loader\AutoLoader\Stream );
+$autoloader = new Next\Loader\AutoLoader;
+$autoloader -> registerAutoloader( new Next\Loader\AutoLoader\Stream );
 
-set_exception_handler(
-
-    ( DEVELOPMENT_MODE >= 1 ?
-
-        array( 'Next\Exception\Handlers', 'development' ) :
-
-        array( 'Next\Exception\Handlers', 'production' )
-    )
-);
+Next\Components\Debug\Handlers::register( 'exception' );
+Next\Components\Debug\Handlers::register( 'error' );
 
 date_default_timezone_set( 'America/Sao_Paulo' );
 
-$applications = new \Next\Application\Chain;
+$applications = new Next\Application\Chain;
 
 $applications -> add( new application\dovahkiin\application );
 
+// Should I regenerate the Application Routes?
+
 if( DEVELOPMENT_MODE == 2 ) {
 
-    $generator = new \Next\Tools\RoutesGenerator(
+    $generator = new Next\Tools\RoutesGenerator\Annotations(
 
-        new \Next\Tools\RoutesGenerator\Annotations(
-
-            $applications,
-
-            'data/routes.sqlite'
-        )
+        $applications, 'data/routes.sqlite'
     );
 
-    $generator -> run( TRUE );
+    // Should I delete everything first?
+
+    $generator -> reset();
+
+    // Okidoki ^^
+
+    $generator -> find() -> save();
 }
 
-$front = new \Next\Controller\Front( $applications );
+$front = new Next\Controller\Front( $applications );
 
 $front -> dispatch();

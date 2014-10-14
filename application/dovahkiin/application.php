@@ -6,7 +6,7 @@ namespace application\dovahkiin;
  * Required Classes / Interfaces
  */
 use Next\Application\AbstractApplication,    # Abstract Application Class
-    Next\View;                               # View Class
+    Next\View\Standard as View;                               # View Class
 
 /**
  * Dovahkiin Application Class
@@ -19,7 +19,7 @@ use Next\Application\AbstractApplication,    # Abstract Application Class
  * @package     application
  * @subpackage  dovahkiin
  *
- * !Path    /finished
+ * !Path /finished
  */
 class application extends AbstractApplication {
 

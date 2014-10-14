@@ -1,5 +1,8 @@
 .git
 .tags
 .tags_sorted_by_file
+built-in.bat
+routing.php
 *.sublime-project
 *.sublime-workspace
+.project

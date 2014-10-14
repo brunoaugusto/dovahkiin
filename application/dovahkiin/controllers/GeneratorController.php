@@ -84,7 +84,7 @@ class GeneratorController extends AbstractController {
                 $result[ $words['translate'] ]['tips'][] = $tip;
                 $result[ $words['translate'] ]['references'][] = $reference;
 
-            } catch( \Next\Exception $e ) {
+            } catch( \Next\Components\Debug\Exception $e ) {
 
                 /**
                  *  We don't need to rethrow this Exception because it

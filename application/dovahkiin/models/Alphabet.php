@@ -2,9 +2,9 @@
 
 namespace application\dovahkiin\models;
 
-use Next\Exception;
+use Next\Components\Debug\Exception;
 
-use Next\Core\Utils\ArrayUtils;
+use Next\Components\Utils\ArrayUtils;
 
 /**
  * Dragon Alphabet for Dovahkiin Application
@@ -434,7 +434,7 @@ abstract class Alphabet {
         array( 'Viintaas', 'Shining' ),
         array( 'Viing', 'Wing' ),
         array( 'Vith', 'Serpent' ),
-        array( 'Vo--', 'Un- prefix.', 'opposite of. e.g. unkind, unlikeable' ),
+        array( 'Vo--', '<i>Un</i>- prefix.', 'opposite of. e.g. unkind, unlikeable' ),
         array( 'Vod', 'Ago', '&quot;Lingrah vod&quot; - long ago' ),
         array( 'Vodahmin', 'Unremembered / Forgotten' ),
         array( 'Vokul', 'Evil', 'Literally &quot;ungood&quot;' ),
@@ -461,7 +461,7 @@ abstract class Alphabet {
         array( 'Yoriik', 'March' ),
         array( 'Yuvon', 'Gold / Golden', 'adjective' ),
         array( 'Zaam', 'Slave', NULL, '[8]' ),
-        array( 'Zaan', 'Shout', 'noun; meaning &quot;Yell&quot;, not use of Voice Power' ),
+        array( 'Zaan', 'Shout', '<i>noun; </i>meaning &quot;Yell&quot;, not use of Voice Power' ),
         array( 'Zah', 'Finite' ),
         array( 'Zahkrii', 'Sword' ),
         array( 'Zahrahmiik', 'Sacrifice' ),
